@@ -309,17 +309,40 @@ const forgotPassword = async (req, res) => {
     const subject = 'Password Reset OTP - Raju Silks & Sarees';
     const text = `Your OTP to reset your password is: ${otp}. This code is valid for 10 minutes.`;
     const html = `
-      <div style="font-family: Arial, sans-serif; padding: 20px; border: 1px solid #E5DDC8; background-color: #FDFBF7;">
-        <h2 style="color: #0B3C5D; font-family: serif;">RAJU SILKS & SAREES</h2>
-        <p>Dear patron,</p>
-        <p>We received a request to reset the password for your account.</p>
-        <div style="background-color: #0B3C5D; color: #E5DDC8; padding: 15px; text-align: center; font-size: 24px; font-weight: bold; border-radius: 8px; letter-spacing: 4px; margin: 20px 0;">
-          ${otp}
+      <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 600px; margin: 0 auto; padding: 0; background-color: #F8F9FA; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); border: 1px solid #E9ECEF;">
+        <!-- Header -->
+        <div style="background-color: #0B3C5D; padding: 40px 20px; text-align: center; border-bottom: 4px solid #E5DDC8;">
+          <h1 style="color: #FFFFFF; margin: 0; font-family: 'Georgia', serif; font-size: 28px; font-weight: 300; letter-spacing: 2px; text-transform: uppercase;">Raju Silks & Sarees</h1>
+          <p style="color: #E5DDC8; margin: 10px 0 0 0; font-size: 14px; letter-spacing: 1px; text-transform: uppercase;">Heritage & Luxury</p>
         </div>
-        <p>This OTP is valid for <strong>10 minutes</strong>. If you did not make this request, you can safely ignore this email.</p>
-        <br/>
-        <p>Regards,</p>
-        <p><strong>Raju Silks & Sarees Support Team</strong></p>
+        
+        <!-- Content -->
+        <div style="padding: 40px 30px; background-color: #FFFFFF;">
+          <h2 style="color: #333333; font-size: 20px; margin-top: 0; font-weight: 600;">Reset Your Password</h2>
+          <p style="color: #555555; font-size: 15px; line-height: 1.6;">Dear Patron,</p>
+          <p style="color: #555555; font-size: 15px; line-height: 1.6;">We received a request to reset the password associated with your account. Please use the following One-Time Password (OTP) to complete the verification process:</p>
+          
+          <!-- OTP Box -->
+          <div style="background-color: #F4F6F8; border: 1px dashed #0B3C5D; border-radius: 8px; padding: 25px 20px; text-align: center; margin: 30px 0;">
+            <span style="display: block; font-size: 12px; color: #777777; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 10px;">Your Verification Code</span>
+            <span style="font-family: 'Courier New', Courier, monospace; font-size: 36px; font-weight: bold; color: #0B3C5D; letter-spacing: 8px; padding-left: 8px;">${otp}</span>
+          </div>
+
+          <!-- Info Box -->
+          <div style="background-color: #FFF9EB; border-left: 4px solid #F5B041; padding: 15px; margin-bottom: 30px; border-radius: 0 8px 8px 0;">
+            <p style="color: #7D6608; margin: 0; font-size: 13px; line-height: 1.5;">
+              <strong>Important:</strong> This OTP is valid for <strong>10 minutes</strong>. For your security, please do not share this code with anyone. If you did not request this, you can safely ignore this email.
+            </p>
+          </div>
+          
+          <p style="color: #555555; font-size: 15px; line-height: 1.6; margin-bottom: 0;">Warm regards,<br><strong>Raju Silks & Sarees Team</strong></p>
+        </div>
+
+        <!-- Footer -->
+        <div style="background-color: #F8F9FA; padding: 20px; text-align: center; border-top: 1px solid #EEEEEE;">
+          <p style="color: #999999; font-size: 12px; margin: 0 0 5px 0;">This is an automated security message. Please do not reply directly to this email.</p>
+          <p style="color: #999999; font-size: 12px; margin: 0;">&copy; ${new Date().getFullYear()} Raju Silks & Sarees. All Rights Reserved.</p>
+        </div>
       </div>
     `;
 

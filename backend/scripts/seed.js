@@ -1,10 +1,11 @@
-const mongoose = require('mongoose');
+const connectDB = require('../config/db');
 const User = require('../models/User');
 const Category = require('../models/Category');
 const Product = require('../models/Product');
 const Coupon = require('../models/Coupon');
 const Review = require('../models/Review');
-require('dotenv').config();
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 
 const categoriesData = [
   { name: 'Pure Silks', image: '/images/categories/pure-silks.jpg' },
@@ -24,8 +25,8 @@ const categoriesData = [
 
 const seedData = async () => {
   try {
-    await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/rajusilks');
-    console.log('MongoDB Connected for Seeding...');
+    await connectDB();
+    console.log('Turso Database Connected for Seeding...');
 
     // Clear existing data
     await User.deleteMany({});

@@ -1,10 +1,19 @@
-const mongoose = require('mongoose');
+const { BaseModel } = require('./BaseModel');
 
-const categorySchema = new mongoose.Schema({
-  name: { type: String, required: true, unique: true },
-  image: { type: String, required: true }
-}, {
-  timestamps: true
-});
+class Category extends BaseModel {
+  static get tableName() {
+    return 'categories';
+  }
 
-module.exports = mongoose.model('Category', categorySchema);
+  static get columns() {
+    return [
+      '_id',
+      'name',
+      'image',
+      'createdAt',
+      'updatedAt'
+    ];
+  }
+}
+
+module.exports = Category;

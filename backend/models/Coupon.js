@@ -1,13 +1,22 @@
-const mongoose = require('mongoose');
+const { BaseModel } = require('./BaseModel');
 
-const couponSchema = new mongoose.Schema({
-  code: { type: String, required: true, unique: true, uppercase: true, trim: true },
-  discountType: { type: String, enum: ['percentage', 'flat'], default: 'percentage' },
-  discountValue: { type: Number, required: true, min: 0 },
-  expiryDate: { type: Date, required: true },
-  active: { type: Boolean, default: true }
-}, {
-  timestamps: true
-});
+class Coupon extends BaseModel {
+  static get tableName() {
+    return 'coupons';
+  }
 
-module.exports = mongoose.model('Coupon', couponSchema);
+  static get columns() {
+    return [
+      '_id',
+      'code',
+      'discountType',
+      'discountValue',
+      'expiryDate',
+      'active',
+      'createdAt',
+      'updatedAt'
+    ];
+  }
+}
+
+module.exports = Coupon;

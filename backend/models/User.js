@@ -1,44 +1,60 @@
-const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs');
+const { BaseModel, Document } = require('./BaseModel');
 
-const addressSchema = new mongoose.Schema({
-  street: { type: String, required: true },
-  city: { type: String, required: true },
-  state: { type: String, required: true },
-  postalCode: { type: String, required: true },
-  country: { type: String, required: true },
-  isDefault: { type: Boolean, default: false }
-}, { _id: true });
-
-const userSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  email: { type: String, required: true, unique: true, index: true },
-  password: { type: String, required: true },
-  phone: { type: String, required: true },
-  role: { type: String, enum: ['user', 'admin'], default: 'user' },
-  addresses: [addressSchema],
-  isBlocked: { type: Boolean, default: false },
-  resetPasswordOTP: { type: String },
-  resetPasswordOTPExpires: { type: Date }
-}, {
-  timestamps: true
-});
-
-// Hash password before saving
-userSchema.pre('save', async function (next) {
-  if (!this.isModified('password')) return next();
-  try {
-    const salt = await bcrypt.genSalt(10);
-    this.password = await bcrypt.hash(this.password, salt);
-    next();
-  } catch (error) {
-    next(error);
+class UserDocument extends Document {
+  async comparePassword(enteredPassword) {
+    const bcrypt = require('bcryptjs');
+    return await bcrypt.compare(enteredPassword, this.password);
   }
-});
 
-// Compare password method
-userSchema.methods.comparePassword = async function (enteredPassword) {
-  return await bcrypt.compare(enteredPassword, this.password);
-};
+  async save() {
+    const bcrypt = require('bcryptjs');
+    if (this.password && !this.password.startsWith('$2a$') && !this.password.startsWith('$2b$')) {
+      const salt = await bcrypt.genSalt(10);
+      this.password = await bcrypt.hash(this.password, salt);
+    }
+    return super.save();
+  }
+}
 
-module.exports = mongoose.model('User', userSchema);
+class User extends BaseModel {
+  static get tableName() {
+    return 'users';
+  }
+
+  static get columns() {
+    return [
+      '_id',
+      'name',
+      'email',
+      'password',
+      'phone',
+      'role',
+      'addresses',
+      'isBlocked',
+      'resetPasswordOTP',
+      'resetPasswordOTPExpires',
+      'createdAt',
+      'updatedAt'
+    ];
+  }
+
+  static get jsonColumns() {
+    return ['addresses'];
+  }
+
+  static get documentClass() {
+    return UserDocument;
+  }
+
+  static async create(data) {
+    const bcrypt = require('bcryptjs');
+    const finalData = { ...data };
+    if (finalData.password && !finalData.password.startsWith('$2a$') && !finalData.password.startsWith('$2b$')) {
+      const salt = await bcrypt.genSalt(10);
+      finalData.password = await bcrypt.hash(finalData.password, salt);
+    }
+    return super.create(finalData);
+  }
+}
+
+module.exports = User;
