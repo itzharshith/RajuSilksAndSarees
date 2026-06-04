@@ -44,9 +44,14 @@ const Shop = () => {
     const fetchCategories = async () => {
       try {
         const { data } = await api.get('/api/categories');
-        setCategories(data);
+        if (Array.isArray(data)) {
+          setCategories(data);
+        } else {
+          setCategories([]);
+        }
       } catch (err) {
         console.error('Error fetching categories:', err);
+        setCategories([]);
       }
     };
     fetchCategories();
@@ -73,11 +78,20 @@ const Shop = () => {
         // 'newest' is default in backend
 
         const { data } = await api.get(url);
-        setProducts(data.products);
-        setTotalPages(data.pages);
-        setTotalProducts(data.total);
+        if (data && Array.isArray(data.products)) {
+          setProducts(data.products);
+          setTotalPages(data.pages || 1);
+          setTotalProducts(data.total || 0);
+        } else {
+          setProducts([]);
+          setTotalPages(1);
+          setTotalProducts(0);
+        }
       } catch (err) {
         console.error('Error fetching products:', err);
+        setProducts([]);
+        setTotalPages(1);
+        setTotalProducts(0);
       } finally {
         setLoading(false);
       }

@@ -16,17 +16,32 @@ const Home = () => {
         setLoading(true);
         // Fetch Categories
         const catRes = await api.get('/api/categories');
-        setCategories(catRes.data);
+        if (catRes && Array.isArray(catRes.data)) {
+          setCategories(catRes.data);
+        } else {
+          setCategories([]);
+        }
 
         // Fetch Featured Products
         const featRes = await api.get('/api/products?featured=true&limit=4');
-        setFeaturedProducts(featRes.data.products);
+        if (featRes && featRes.data && Array.isArray(featRes.data.products)) {
+          setFeaturedProducts(featRes.data.products);
+        } else {
+          setFeaturedProducts([]);
+        }
 
         // Fetch New Arrivals (sorted by date, default in backend controller)
         const newRes = await api.get('/api/products?limit=4');
-        setNewArrivals(newRes.data.products);
+        if (newRes && newRes.data && Array.isArray(newRes.data.products)) {
+          setNewArrivals(newRes.data.products);
+        } else {
+          setNewArrivals([]);
+        }
       } catch (err) {
         console.error('Error fetching homepage details:', err);
+        setCategories([]);
+        setFeaturedProducts([]);
+        setNewArrivals([]);
       } finally {
         setLoading(false);
       }
