@@ -136,7 +136,7 @@ const Footer = () => {
             </li>
             <li className="flex items-center space-x-2">
               <Mail size={16} className="text-brand-creamText shrink-0" />
-              <span>care@rajusilks.com</span>
+              <span>raj.hanumanslk@gmail.com</span>
             </li>
             <li className="flex items-start space-x-2">
               <Clock size={16} className="text-brand-creamText shrink-0 mt-0.5" />

@@ -55,7 +55,7 @@ const Contact = () => {
               <Mail className="text-brand-creamText shrink-0 mt-1" size={20} />
               <div>
                 <p className="font-semibold text-brand-creamText">Email Inquiries</p>
-                <p className="mt-1 hover:text-brand-creamText">care@rajusilks.com</p>
+                <p className="mt-1 hover:text-brand-creamText">raj.hanumanslk@gmail.com</p>
               </div>
             </div>
 
@@ -80,7 +80,7 @@ const Contact = () => {
           {submitted && (
             <div className="mb-6 p-4 bg-green-50 border border-green-200 text-green-700 text-sm rounded-lg flex items-center space-x-2 animate-scale-up">
               <ShieldCheck className="shrink-0" size={18} />
-              <span>Your message has been received! Our support team will respond to care@rajusilks.com within 24 business hours.</span>
+              <span>Your message has been received! Our support team will respond to raj.hanumanslk@gmail.com within 24 business hours.</span>
             </div>
           )}
 

@@ -62,7 +62,7 @@ const Terms = () => {
           <p>
             If you have any questions or complaints regarding these Terms and Conditions, please contact us at:
             <br />
-            Email: <strong>care@rajusilks.com</strong>
+            Email: <strong>raj.hanumanslk@gmail.com</strong>
             <br />
             Phone: <strong>+91 98492 92252</strong>
           </p>

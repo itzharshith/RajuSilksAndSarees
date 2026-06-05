@@ -71,7 +71,7 @@ const ShippingPolicy = () => {
           <p>
             If your package is delayed or has delivery status discrepancies, please reach out to us:
             <br />
-            Email: <strong>care@rajusilks.com</strong>
+            Email: <strong>raj.hanumanslk@gmail.com</strong>
             <br />
             Phone: <strong>+91 98492 92252</strong>
           </p>

@@ -63,7 +63,7 @@ const Privacy = () => {
         <section className="space-y-3">
           <h2 className="font-serif font-semibold text-lg text-brand-blue uppercase">6. Your Rights</h2>
           <p>
-            You have the right to request access to, edit, or delete your personal data. You can perform this by logging into your profile page or by contacting us directly at <strong>care@rajusilks.com</strong>.
+            You have the right to request access to, edit, or delete your personal data. You can perform this by logging into your profile page or by contacting us directly at <strong>raj.hanumanslk@gmail.com</strong>.
           </p>
         </section>
       </div>

@@ -20,7 +20,7 @@ const RefundPolicy = () => {
             You can request to cancel your order at any time **before it is dispatched** for shipping. 
           </p>
           <ul className="list-disc pl-5 space-y-1">
-            <li>To request a cancellation, please email us at <strong>care@rajusilks.com</strong> or call us at <strong>+91 98492 92252</strong> with your Order ID.</li>
+            <li>To request a cancellation, please email us at <strong>raj.hanumanslk@gmail.com</strong> or call us at <strong>+91 98492 92252</strong> with your Order ID.</li>
             <li>If the order has not been shipped, we will process your cancellation immediately and issue a full refund to your original payment source.</li>
             <li>Once an order is dispatched/shipped, it cannot be cancelled.</li>
           </ul>
@@ -44,7 +44,7 @@ const RefundPolicy = () => {
             To initiate a return:
           </p>
           <ol className="list-decimal pl-5 space-y-1">
-            <li>Email <strong>care@rajusilks.com</strong> within 7 days of delivery, attaching images of the damaged/incorrect product.</li>
+            <li>Email <strong>raj.hanumanslk@gmail.com</strong> within 7 days of delivery, attaching images of the damaged/incorrect product.</li>
             <li>Once approved, we will arrange a reverse pickup from your shipping address at no extra cost.</li>
             <li>Upon receiving the returned product at our Hyderabad facility, it will undergo a quality check.</li>
           </ol>
@@ -69,7 +69,7 @@ const RefundPolicy = () => {
           <p>
             For any queries regarding refunds, exchanges, or return status, feel free to reach our dedicated support desk:
             <br />
-            Email: <strong>care@rajusilks.com</strong>
+            Email: <strong>raj.hanumanslk@gmail.com</strong>
             <br />
             Phone: <strong>+91 98492 92252</strong> (Operational 11:00 AM to 8:00 PM, Mon-Sun)
           </p>
