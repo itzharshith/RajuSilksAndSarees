@@ -127,12 +127,12 @@ const Footer = () => {
             <li className="flex items-start space-x-2">
               <MapPin size={16} className="text-brand-creamText shrink-0 mt-0.5" />
               <span>
-                12 Weaver Street, Silk Nagar, Kanchipuram, Tamil Nadu, 631501
+                BK 114, Shivam Rd, Sai Baba Colony, Bagh Amberpet, New Nallakunta, Hyderabad, Telangana 500044
               </span>
             </li>
             <li className="flex items-center space-x-2">
               <Phone size={16} className="text-brand-creamText shrink-0" />
-              <span>+91 98765 43210</span>
+              <span>+91 98492 92252</span>
             </li>
             <li className="flex items-center space-x-2">
               <Mail size={16} className="text-brand-creamText shrink-0" />
@@ -141,8 +141,7 @@ const Footer = () => {
             <li className="flex items-start space-x-2">
               <Clock size={16} className="text-brand-creamText shrink-0 mt-0.5" />
               <span>
-                Mon - Sat: 9:30 AM to 8:30 PM<br />
-                Sunday: 10:00 AM to 6:00 PM
+                Mon - Sun: 11:00 AM to 8:00 PM
               </span>
             </li>
           </ul>

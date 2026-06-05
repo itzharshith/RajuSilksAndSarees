@@ -17,7 +17,7 @@ const ShippingPolicy = () => {
         <section className="space-y-3">
           <h2 className="font-serif font-semibold text-lg text-brand-blue uppercase">1. Order Processing & Dispatch Timelines</h2>
           <p>
-            Each product goes through rigorous quality checks at our Kanchipuram facility before packaging:
+            Each product goes through rigorous quality checks at our Hyderabad facility before packaging:
           </p>
           <ul className="list-disc pl-5 space-y-1">
             <li>**Standard In-Stock Products**: Orders are processed and dispatched within **1 to 2 business days** from order confirmation.</li>
@@ -73,7 +73,7 @@ const ShippingPolicy = () => {
             <br />
             Email: <strong>care@rajusilks.com</strong>
             <br />
-            Phone: <strong>+91 98765 43210</strong>
+            Phone: <strong>+91 98492 92252</strong>
           </p>
         </section>
       </div>

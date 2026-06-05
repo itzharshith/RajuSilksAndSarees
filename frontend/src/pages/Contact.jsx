@@ -36,9 +36,9 @@ const Contact = () => {
               <div>
                 <p className="font-semibold text-brand-creamText">Registered Address</p>
                 <p className="mt-1 leading-relaxed">
-                  12 Weaver Street, Silk Nagar,<br />
-                  Kanchipuram, Tamil Nadu,<br />
-                  PIN: 631501, India
+                  BK 114, Shivam Rd, Sai Baba Colony,<br />
+                  Bagh Amberpet, New Nallakunta,<br />
+                  Hyderabad, Telangana 500044, India
                 </p>
               </div>
             </div>
@@ -47,7 +47,7 @@ const Contact = () => {
               <Phone className="text-brand-creamText shrink-0 mt-1" size={20} />
               <div>
                 <p className="font-semibold text-brand-creamText">Call / WhatsApp</p>
-                <p className="mt-1">+91 98765 43210</p>
+                <p className="mt-1">+91 98492 92252</p>
               </div>
             </div>
 
@@ -64,8 +64,7 @@ const Contact = () => {
               <div>
                 <p className="font-semibold text-brand-creamText">Weaving Showroom Hours</p>
                 <p className="mt-1 leading-relaxed">
-                  Mon - Sat: 9:30 AM to 8:30 PM<br />
-                  Sunday: 10:00 AM to 6:00 PM
+                  Mon - Sun: 11:00 AM to 8:00 PM
                 </p>
               </div>
             </div>

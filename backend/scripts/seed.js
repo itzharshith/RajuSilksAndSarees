@@ -45,10 +45,10 @@ const seedData = async () => {
       role: 'admin',
       addresses: [
         {
-          street: '12 Weaver Street, Silk Nagar',
-          city: 'Kanchipuram',
-          state: 'Tamil Nadu',
-          postalCode: '631501',
+          street: 'BK 114, Shivam Rd, Sai Baba Colony, Bagh Amberpet',
+          city: 'Hyderabad',
+          state: 'Telangana',
+          postalCode: '500044',
           country: 'India',
           isDefault: true
         }

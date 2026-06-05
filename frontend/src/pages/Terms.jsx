@@ -17,8 +17,8 @@ const Terms = () => {
         <section className="space-y-3">
           <h2 className="font-serif font-semibold text-lg text-brand-blue uppercase">1. Business Entity Information</h2>
           <p>
-            Raju Silks & Sarees is a registered business operating in Kanchipuram, Tamil Nadu, India. 
-            Registered Address: 12 Weaver Street, Silk Nagar, Kanchipuram, Tamil Nadu, 631501.
+            Raju Silks & Sarees is a registered business operating in Hyderabad, Telangana, India. 
+            Registered Address: BK 114, Shivam Rd, Sai Baba Colony, Bagh Amberpet, New Nallakunta, Hyderabad, Telangana 500044.
           </p>
         </section>
 
@@ -53,7 +53,7 @@ const Terms = () => {
         <section className="space-y-3">
           <h2 className="font-serif font-semibold text-lg text-brand-blue uppercase">6. Governing Law & Jurisdiction</h2>
           <p>
-            These terms shall be governed by and construed in accordance with the laws of India. Any disputes arising under these terms shall be subject to the exclusive jurisdiction of the courts located in Kanchipuram/Chennai, Tamil Nadu, India.
+            These terms shall be governed by and construed in accordance with the laws of India. Any disputes arising under these terms shall be subject to the exclusive jurisdiction of the courts located in Hyderabad, Telangana, India.
           </p>
         </section>
 
@@ -64,7 +64,7 @@ const Terms = () => {
             <br />
             Email: <strong>care@rajusilks.com</strong>
             <br />
-            Phone: <strong>+91 98765 43210</strong>
+            Phone: <strong>+91 98492 92252</strong>
           </p>
         </section>
       </div>

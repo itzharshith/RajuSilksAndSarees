@@ -33,7 +33,7 @@ const About = () => {
         <div className="pt-6 border-t border-gray-100 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500 gap-4">
           <div>
             <p className="font-semibold text-brand-blue">Raju Silks & Sarees</p>
-            <p>12 Weaver Street, Silk Nagar, Kanchipuram, Tamil Nadu, 631501</p>
+            <p>BK 114, Shivam Rd, Sai Baba Colony, Bagh Amberpet, New Nallakunta, Hyderabad, Telangana 500044</p>
           </div>
           <p className="font-semibold">Established 1985</p>
         </div>
