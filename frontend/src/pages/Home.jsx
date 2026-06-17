@@ -121,7 +121,26 @@ const Home = () => {
           <div className="h-0.5 w-24 bg-brand-creamText mx-auto mt-2"></div>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6 justify-center">
+        {/* Mobile horizontal category scroller */}
+        <div className="flex lg:hidden overflow-x-auto gap-4 pb-4 px-2 snap-x snap-mandatory scrollbar-none custom-scrollbar">
+          {categories.map((cat) => (
+            <Link
+              key={cat._id}
+              to={`/shop?category=${encodeURIComponent(cat.name)}`}
+              className="snap-start shrink-0 flex flex-col items-center justify-center text-center w-24 bg-white rounded-xl border border-brand-creamText/15 p-3.5 shadow-sm active:border-brand-creamText"
+            >
+              <div className="h-12 w-12 rounded-full bg-brand-blue-deep/5 border border-brand-creamText/20 flex items-center justify-center mb-2 text-brand-blue font-serif font-bold text-sm">
+                {cat.name[0]}
+              </div>
+              <span className="font-sans font-medium text-[10px] text-brand-blue-deep line-clamp-2 leading-tight">
+                {cat.name}
+              </span>
+            </Link>
+          ))}
+        </div>
+
+        {/* Desktop grid layout */}
+        <div className="hidden lg:grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6 justify-center">
           {categories.map((cat) => (
             <Link
               key={cat._id}
@@ -159,7 +178,7 @@ const Home = () => {
               </Link>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
               {featuredProducts.map((prod) => (
                 <ProductCard key={prod._id} product={prod} />
               ))}
@@ -199,7 +218,7 @@ const Home = () => {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
             {newArrivals.map((prod) => (
               <ProductCard key={prod._id} product={prod} />
             ))}

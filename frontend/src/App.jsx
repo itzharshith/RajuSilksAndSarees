@@ -6,6 +6,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import AdminLayout from './components/AdminLayout';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import MobileTabBar from './components/MobileTabBar';
 
 // Public pages
 import Home from './pages/Home';
@@ -39,12 +40,13 @@ import AdminCustomers from './pages/admin/AdminCustomers';
 // Client Public Layout wrapper
 const ClientLayout = () => {
   return (
-    <div className="flex flex-col min-h-screen bg-brand-cream/10">
+    <div className="flex flex-col min-h-screen bg-brand-cream/10 pb-16 lg:pb-0">
       <Navbar />
       <main className="flex-grow">
         <Outlet />
       </main>
       <Footer />
+      <MobileTabBar />
     </div>
   );
 };

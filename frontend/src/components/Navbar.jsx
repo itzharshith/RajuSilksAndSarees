@@ -7,8 +7,6 @@ import {
   Heart, 
   User, 
   Search, 
-  Menu, 
-  X, 
   LogOut, 
   Sliders, 
   History 
@@ -20,7 +18,6 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const [searchQuery, setSearchQuery] = useState('');
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [userDropdownOpen, setUserDropdownOpen] = useState(false);
 
   const cartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
@@ -29,7 +26,6 @@ const Navbar = () => {
     e.preventDefault();
     if (searchQuery.trim()) {
       navigate(`/shop?search=${encodeURIComponent(searchQuery.trim())}`);
-      setMobileMenuOpen(false);
     }
   };
 
@@ -92,8 +88,8 @@ const Navbar = () => {
               <Search size={20} />
             </button>
 
-            {/* Wishlist */}
-            <Link to="/wishlist" className="relative text-brand-creamText hover:text-white transition-colors">
+            {/* Wishlist - Hidden on Mobile, shown on Large screens */}
+            <Link to="/wishlist" className="hidden lg:block relative text-brand-creamText hover:text-white transition-colors">
               <Heart size={20} />
               {wishlist.length > 0 && (
                 <span className="absolute -top-2 -right-2 bg-red-600 text-white font-bold text-[10px] h-5 w-5 rounded-full flex items-center justify-center border border-brand-blue-deep">
@@ -102,8 +98,8 @@ const Navbar = () => {
               )}
             </Link>
 
-            {/* Cart */}
-            <Link to="/cart" className="relative text-brand-creamText hover:text-white transition-colors">
+            {/* Cart - Hidden on Mobile, shown on Large screens */}
+            <Link to="/cart" className="hidden lg:block relative text-brand-creamText hover:text-white transition-colors">
               <ShoppingBag size={20} />
               {cartCount > 0 && (
                 <span className="absolute -top-2 -right-2 bg-brand-creamText text-brand-blue-deep font-bold text-[10px] h-5 w-5 rounded-full flex items-center justify-center border border-brand-blue-deep shadow-sm">
@@ -112,8 +108,8 @@ const Navbar = () => {
               )}
             </Link>
 
-            {/* Authentication user menu */}
-            <div className="relative">
+            {/* Authentication user menu - Hidden on Mobile, shown on Large screens */}
+            <div className="hidden lg:block relative">
               {user ? (
                 <>
                   <button
@@ -187,69 +183,9 @@ const Navbar = () => {
                 </>
               )}
             </div>
-
-            {/* Mobile menu toggle */}
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden text-brand-creamText hover:text-white transition-colors"
-            >
-              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
           </div>
-
         </div>
       </div>
-
-      {/* Mobile Menu Drawer */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-brand-creamText/20 bg-brand-blue-deep px-4 py-6 space-y-4 animate-slide-down">
-          {/* Mobile search */}
-          <form onSubmit={handleSearchSubmit} className="relative">
-            <input
-              type="text"
-              placeholder="Search collection..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-brand-blue/40 text-brand-cream placeholder-brand-cream/50 text-sm py-2 pl-4 pr-10 rounded-full border border-brand-creamText/30"
-            />
-            <button type="submit" className="absolute right-3 top-2 text-brand-creamText">
-              <Search size={18} />
-            </button>
-          </form>
-
-          {/* Mobile Nav links */}
-          <div className="flex flex-col space-y-3 font-sans tracking-wide text-sm pl-2 border-b border-brand-creamText/10 pb-4">
-            <Link to="/" onClick={() => setMobileMenuOpen(false)} className="hover:text-brand-creamText transition-colors">HOME</Link>
-            <Link to="/shop" onClick={() => setMobileMenuOpen(false)} className="hover:text-brand-creamText transition-colors">SHOP ALL SAREES</Link>
-            <Link to="/shop?category=Kanjeevaram%20Silks" onClick={() => setMobileMenuOpen(false)} className="hover:text-brand-creamText transition-colors">KANJEEVARAM SILKS</Link>
-            <Link to="/shop?featured=true" onClick={() => setMobileMenuOpen(false)} className="hover:text-brand-creamText transition-colors">BEST SELLERS</Link>
-            {user && user.role === 'admin' && (
-              <Link to="/admin" onClick={() => setMobileMenuOpen(false)} className="text-brand-creamText font-semibold hover:text-white">ADMIN DASHBOARD</Link>
-            )}
-          </div>
-
-          {/* Mobile User profile & logout actions */}
-          <div className="flex flex-col space-y-3 font-sans tracking-wide text-sm pl-2 pt-2">
-            {user ? (
-              <>
-                <Link to="/profile" onClick={() => setMobileMenuOpen(false)} className="hover:text-brand-creamText transition-colors">MY PROFILE</Link>
-                <Link to="/order-history" onClick={() => setMobileMenuOpen(false)} className="hover:text-brand-creamText transition-colors">ORDER HISTORY</Link>
-                <button
-                  onClick={() => {
-                    handleLogout();
-                    setMobileMenuOpen(false);
-                  }}
-                  className="text-left text-red-400 hover:text-red-300 transition-colors"
-                >
-                  SIGN OUT
-                </button>
-              </>
-            ) : (
-              <Link to="/login" onClick={() => setMobileMenuOpen(false)} className="text-brand-creamText font-semibold hover:text-white transition-colors">SIGN IN</Link>
-            )}
-          </div>
-        </div>
-      )}
     </header>
   );
 };

@@ -133,7 +133,7 @@ const ProductDetails = () => {
   };
 
   return (
-    <div className="bg-brand-cream min-h-screen py-12 font-sans">
+    <div className="bg-brand-cream min-h-screen pt-12 pb-28 md:pb-12 font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Breadcrumbs */}
@@ -442,7 +442,7 @@ const ProductDetails = () => {
             <h2 className="font-serif font-bold text-lg text-brand-blue-deep tracking-wider mb-6">
               You May Also Adore
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
               {relatedProducts.map((prod) => (
                 <ProductCard key={prod._id} product={prod} />
               ))}
@@ -450,6 +450,31 @@ const ProductDetails = () => {
           </div>
         )}
 
+      </div>
+
+      {/* Sticky Mobile Add To Cart CTA Bar */}
+      <div className="fixed bottom-16 left-0 right-0 z-30 bg-white border-t border-brand-creamText/25 px-4 py-3 flex items-center justify-between shadow-[0_-4px_10px_rgba(7,17,30,0.15)] md:hidden animate-slide-up">
+        <div className="flex flex-col">
+          <span className="text-[10px] text-gray-500 uppercase leading-none">Price</span>
+          <span className="text-sm font-serif font-bold text-brand-blue-deep mt-0.5">
+            ₹{discountedPrice.toLocaleString('en-IN')}
+          </span>
+        </div>
+        <div className="flex gap-2">
+          {product.stock > 0 ? (
+            <button
+              onClick={handleAddToCart}
+              className="bg-brand-blue hover:bg-brand-blue-deep text-white font-sans font-semibold tracking-wider text-[11px] px-5 py-2.5 rounded-full flex items-center justify-center space-x-1.5 border border-brand-creamText/20"
+            >
+              <ShoppingCart size={13} />
+              <span>ADD TO CART</span>
+            </button>
+          ) : (
+            <span className="text-[10px] text-red-700 bg-red-50 border border-red-200 px-3 py-2 rounded font-semibold uppercase">
+              Out of Stock
+            </span>
+          )}
+        </div>
       </div>
     </div>
   );
