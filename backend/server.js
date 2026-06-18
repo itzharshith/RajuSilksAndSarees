@@ -37,7 +37,7 @@ app.use(cors({
 // Rate limiting: general protection
 const generalLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 200, 
+  max: 200,
   message: { message: 'Too many requests, please try again after 15 minutes.' }
 });
 app.use('/api', generalLimiter);
@@ -45,7 +45,7 @@ app.use('/api', generalLimiter);
 // Stricter rate limits for auth
 const authLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
-  max: 20, 
+  max: 20,
   message: { message: 'Too many authentication attempts. Please try again after 15 minutes.' }
 });
 app.use('/api/users/login', authLimiter);
