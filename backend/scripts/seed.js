@@ -40,7 +40,7 @@ const seedData = async () => {
     const adminUser = await User.create({
       name: 'Raju Admin',
       email: 'raj.hanumanslk@gmail.com',
-      password: 'admin123', // Will be hashed by pre-save hook
+      password: 'admin@1234', // Will be hashed by pre-save hook
       phone: '9876543210',
       role: 'admin',
       addresses: [
@@ -72,7 +72,7 @@ const seedData = async () => {
         }
       ]
     });
-    console.log('Users Seeded (Admin: raj.hanumanslk@gmail.com / admin123 | User: user@rajusilks.com / user123)');
+    console.log('Users Seeded (Admin: raj.hanumanslk@gmail.com / admin@1234 | User: user@rajusilks.com / user123)');
 
     // Seed Categories
     const seededCategories = await Category.insertMany(categoriesData);
