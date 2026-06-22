@@ -16,23 +16,41 @@ app.use(helmet({
   crossOriginResourcePolicy: false // Allows serving static uploads folder
 }));
 
-// CORS Configuration: Same-domain in production, allow localhost in dev
-const allowedOrigins = [
-  'http://localhost:3000',
-  'http://localhost:5173', // Vite standard dev port
-  process.env.FRONTEND_URL
-].filter(Boolean);
+// CORS Configuration: Dynamic check supporting same-domain on production (Vercel) & local development
+const corsOptionsDelegate = (req, callback) => {
+  const origin = req.header('Origin');
+  const host = req.header('Host');
+  
+  const allowedOrigins = [
+    'http://localhost:3000',
+    'http://localhost:5173',
+    process.env.FRONTEND_URL
+  ].filter(Boolean);
 
-app.use(cors({
-  origin: (origin, callback) => {
-    if (!origin) return callback(null, true);
-    if (allowedOrigins.indexOf(origin) !== -1 || process.env.NODE_ENV !== 'production') {
-      return callback(null, true);
+  let isAllowed = false;
+  if (!origin) {
+    isAllowed = true;
+  } else if (allowedOrigins.indexOf(origin) !== -1 || process.env.NODE_ENV !== 'production') {
+    isAllowed = true;
+  } else {
+    try {
+      const originHost = new URL(origin).host;
+      if (originHost === host) {
+        isAllowed = true;
+      }
+    } catch (e) {
+      isAllowed = false;
     }
-    callback(new Error('Not allowed by CORS'));
-  },
-  credentials: true
-}));
+  }
+
+  const corsOptions = isAllowed 
+    ? { origin: true, credentials: true }
+    : { origin: false };
+    
+  callback(null, corsOptions);
+};
+
+app.use(cors(corsOptionsDelegate));
 
 // Rate limiting: general protection
 const generalLimiter = rateLimit({
